@@ -1,10 +1,13 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import loader from "../../assets/loader.gif"
 import Form from "./Form";
-
+import { NavLink } from "react-router-dom";
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  
   return (
+    
     <Box>
       <Box
         width="100%"
@@ -12,9 +15,12 @@ const LoginPage = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
+        <NavLink to="/" className="textDecoration"> 
+          <Typography fontWeight="bold" fontSize="32px" color="primary" >
           Connectopia.
-        </Typography>
+          </Typography>
+        </NavLink>
+        
       </Box>
 
       <Box

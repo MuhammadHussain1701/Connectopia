@@ -61,3 +61,18 @@ export const addRemoveFriend = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const getAllUsers=async(req,res,next)=>{
+  try{
+    const users=await User.find({_id:{$ne:req.params.id}}).select([
+      "firstName",
+      "email",
+      "picturePath",
+      "_id",
+    ])
+    return res.json(users)
+  }
+  catch(err){
+    res.status(404).json({ message: err.message });
+  }
+}
