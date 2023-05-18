@@ -11,11 +11,11 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
+import savedRoutes from "./routes/saved.js";
 import messageRoutes from "./routes/messages.js"
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
-import {Socket} from "socket.io"
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
@@ -52,6 +52,7 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+app.use("/saved",savedRoutes)
 app.use("/messages", messageRoutes);
 
 /* MONGOOSE SETUP */
@@ -69,30 +70,3 @@ mongoose
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
-
-  // SOCKET IO 
-
-  
-  // const io =new Socket(app, {
-  //   cors: {
-  //     origin: "http://localhost:3001",
-  //     credentials: true,
-  //   }
-  // });
-  
-  
-  // global.onlineUsers = new Map();
-  // io.on("connection", (socket) => {
-  //   global.chatSocket = socket;
-  //   socket.on("add-user", (userId) => {
-  //     onlineUsers.set(userId, socket.id);
-  //   });
-  
-  //   socket.on("send-msg", (data) => {
-  //     const sendUserSocket = onlineUsers.get(data.to);
-  //     if (sendUserSocket) {
-  //       socket.to(sendUserSocket).emit("msg-recieve", data.msg);
-  //     }
-  //   });
-  // });
-  

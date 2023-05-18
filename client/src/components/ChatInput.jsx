@@ -1,8 +1,9 @@
- import React, { useState } from "react";
+ import React, { useEffect, useState } from "react";
 import {BsEmojiSmileFill} from "react-icons/bs"
 import {IoMdSend} from "react-icons/io"
 import Picker from "emoji-picker-react"
-function ChatInput({handleSendMsg}){
+function ChatInput({handleSendMsg ,fetchData}){
+    const [control,setControl]=useState(false)
     const [showEmojiPicker,setShowEmojiPicker]=useState(false)
     const [msg,setMsg]=useState("")
     const handleEmojiPickerHideShow=()=>{
@@ -22,7 +23,12 @@ function ChatInput({handleSendMsg}){
             handleSendMsg(msg)
             setMsg('')
         }
+
+        fetchData()
     }
+    useEffect(()=>{
+        fetchData()
+    },[control])
     return <div className="chatinput-container">
         <div className="button-container">
             <div className="emoji">

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
+import SavedPage from "scenes/SavedPage";
 import IndexPage from "scenes/indexPage/index";
 import Chat from "scenes/chatPage/Chat"
 
@@ -30,6 +31,14 @@ function App() {
             <Route
               path="/profile/:userId"
               element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/saved/:userId"
+              element={isAuth ? <SavedPage /> : <Navigate to="/" />}
+            />
+            <Route
+              path="*"
+              element={isAuth ? <HomePage /> : <Navigate to="/" />}
             />
             <Route
               path="/chat"

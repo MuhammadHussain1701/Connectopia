@@ -29,18 +29,19 @@ function ChatContainer({ currentChat, currentUser }) {
     }
   }, [currentChat]);
 
-  useEffect(()=>{
-    async function fetchData(){
-      if(currentUser)
-      {
-        const response=await axios.post("http://localhost:3001/messages/getmsg",{
-        from:currentUser._id,
-        to:currentChat._id
+  async function fetchData(){
+    if(currentUser)
+    {
+      const response=await axios.post("http://localhost:3001/messages/getmsg",{
+      from:currentUser._id,
+      to:currentChat._id
 
-      })
-      setMessages(response.data)
-    }
-    }
+    })
+    setMessages(response.data)
+  }
+  }
+  useEffect(()=>{
+    
     fetchData()
     
   },[currentChat])
@@ -76,7 +77,7 @@ function ChatContainer({ currentChat, currentUser }) {
           })
         }
       </div>
-      <ChatInput handleSendMsg={handleSendMsg} />
+      <ChatInput handleSendMsg={handleSendMsg} fetchData={fetchData} />
     </div>
   );
 }

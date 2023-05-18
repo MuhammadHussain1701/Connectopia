@@ -430,10 +430,10 @@ button:active{
   transition: 0.5s ease-in-out;
 }
 .contacts::-webkit-scrollbar {
-  width: 0.2rem;
+  width: 0.5rem;
 }
 .contacts::-webkit-scrollbar-thumb {
-  background-color: #0b0b0b39;
+  background-color: #00D5FA;
   width: 0.1rem;
   border-radius: 1rem;
 }
@@ -450,7 +450,7 @@ button:active{
   background-color: #9186f3;
 }
 .current-user {
-  background-color: #00d9ff;
+  background-color: #9a86f3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -494,6 +494,15 @@ button:active{
   gap: 0.1rem;
   overflow: hidden;
 }
+.chat-messages::-webkit-scrollbar{
+	width: 0.5rem;
+}
+.chat-messages::-webkit-scrollbar-thumb{
+	background-color: #00D5FA;
+	width: 0.1rem;
+	border-radius: 1rem;
+}
+
 @media screen and (min-width: 720px) and (max-width: 1080px) {
   .chatContainer-container {
     grid-template-rows: 15% 70% 15%;
