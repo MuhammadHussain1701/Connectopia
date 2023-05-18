@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
-
+import { NavLink } from "react-router-dom";
 function Contacts({ contacts, currentUser,changeChat}) {
+ 
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
@@ -22,8 +22,10 @@ function Contacts({ contacts, currentUser,changeChat}) {
       {currentUserImage && currentUserName && (
         <div className="contacts-container">
           <div className="brand">
-            {/* <img src={logo} alt="" /> */}
+            <NavLink to="/home" className="textDecoration">
             <h3>Connectopia</h3>
+
+            </NavLink>
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => {

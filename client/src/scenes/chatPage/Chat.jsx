@@ -43,7 +43,7 @@ function Chat(){
     else{
         return (
             <div className="out-container">
-                <div className="container">
+                <div className="chat-container">
                     <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
                     {isLoaded && currentChat===undefined?(
                         <Welcome currentUser={currentUser}/>
