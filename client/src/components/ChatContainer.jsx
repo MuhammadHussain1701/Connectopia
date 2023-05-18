@@ -41,10 +41,12 @@ function ChatContainer({ currentChat, currentUser }) {
   }
   }
   useEffect(()=>{
+    setInterval(()=>{
+      fetchData()
+
+    },5000)
     
-    fetchData()
-    
-  },[currentChat])
+  },[])
   return (
     <div className="chatContainer-container">
       <div className="chatContainer-header">

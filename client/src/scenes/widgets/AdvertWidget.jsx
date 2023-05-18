@@ -89,7 +89,7 @@ const AdvertWidget = () => {
   }}>
     <FlexBetween>
       <Typography variant="h4" component="h4" color={main}>{item.Price}</Typography>
-      <Typography color={medium}><a href="https://www.nike.com/gb/" >Quick Buy</a></Typography>
+      <Typography color={medium}><a href="https://www.nike.com/gb/" target="_blank">Quick Buy</a></Typography>
     </FlexBetween>
     <Typography color={medium} m="0.5rem 0">
       {item.Description}

@@ -34,10 +34,14 @@ body,
 
   
 }
-.post-reverse{
-	display: flex;
-	flex-direction: column-reverse;
-}
+.home-scrollDesign::-webkit-scrollbar {
+	width: 0.5rem;
+  }
+.home-scrollDesign::-webkit-scrollbar-thumb {
+	background-color: #00D5FA;
+	width: 0.1rem;
+	border-radius: 1rem;
+  }
 /* .logo-size{
   height: 10%;
   width: 20%;

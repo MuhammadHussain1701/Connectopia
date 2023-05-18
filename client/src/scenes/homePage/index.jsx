@@ -12,7 +12,7 @@ const HomePage = () => {
   const { _id, picturePath } = useSelector((state) => state.user);
 
   return (
-    <Box>
+    <Box className="home-scrollDesign">
       <Navbar />
       <Box
         width="100%"
