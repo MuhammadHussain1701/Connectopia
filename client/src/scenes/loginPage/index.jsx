@@ -16,7 +16,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <NavLink to="/" className="textDecoration"> 
-          <Typography fontWeight="bold" fontSize="32px" color="primary" >
+          <Typography fontWeight="bold" fontSize="32px" color="primary" fontFamily="cursive" >
           Connectopia.
           </Typography>
         </NavLink>

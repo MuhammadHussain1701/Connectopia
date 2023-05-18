@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Contacts from "../../components/Contacts"
 import Welcome from "components/Welcome";
 import ChatContainer from "components/ChatContainer";
+import io from "socket.io-client"
 function Chat(){
     const navigate=useNavigate()
     const [contacts,setContacts]=useState([])

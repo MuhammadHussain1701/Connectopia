@@ -15,6 +15,7 @@ import messageRoutes from "./routes/messages.js"
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
+import {Socket} from "socket.io"
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
@@ -33,7 +34,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
-/* FILE STORAGE */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public/assets");
@@ -55,7 +55,7 @@ app.use("/posts", postRoutes);
 app.use("/messages", messageRoutes);
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 6001;
+const PORT = process.env.PORT || 3001;
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -69,3 +69,30 @@ mongoose
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
+
+  // SOCKET IO 
+
+  
+  // const io =new Socket(app, {
+  //   cors: {
+  //     origin: "http://localhost:3001",
+  //     credentials: true,
+  //   }
+  // });
+  
+  
+  // global.onlineUsers = new Map();
+  // io.on("connection", (socket) => {
+  //   global.chatSocket = socket;
+  //   socket.on("add-user", (userId) => {
+  //     onlineUsers.set(userId, socket.id);
+  //   });
+  
+  //   socket.on("send-msg", (data) => {
+  //     const sendUserSocket = onlineUsers.get(data.to);
+  //     if (sendUserSocket) {
+  //       socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+  //     }
+  //   });
+  // });
+  

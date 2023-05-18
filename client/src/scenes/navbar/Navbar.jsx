@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../../assets/logo.svg"
 import {
   Box,
   IconButton,
@@ -50,6 +51,7 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
+          fontFamily="cursive"
           color="primary"
           onClick={() => navigate("/home")}
           sx={{
