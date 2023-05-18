@@ -42,10 +42,16 @@ body,
 	width: 0.1rem;
 	border-radius: 1rem;
   }
-/* .logo-size{
-  height: 10%;
-  width: 20%;
-} */
+
+  /* CENTERING LOADER  */
+
+  .login-loading{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
 
 /* CHAT  */
 

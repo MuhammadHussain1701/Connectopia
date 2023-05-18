@@ -7,6 +7,7 @@ import FriendListWidget from "scenes/widgets/FriendListWidget";
 import MyPostWidget from "scenes/widgets/MyPostWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import UserWidget from "scenes/widgets/UserWidget";
+import HashLoader from "react-spinners/HashLoader";
 
 
 const ProfilePage = () => {
@@ -15,6 +16,7 @@ const ProfilePage = () => {
   const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const loggedInUser = useSelector((state) => state.user);
+  const [loadingEffect, setLoadingEffect] = useState(true);
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -29,10 +31,21 @@ const ProfilePage = () => {
     getUser();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingEffect(false);
+    }, 2000);
+  },[]);
   if (!user) return null;
-
   return (
-    <Box>
+    <>
+      {loadingEffect ? (
+        <div className="login-loading">
+
+          <HashLoader  color="#02aaff" size={200} />
+        </div>
+      ) : (
+        <Box>
       <Navbar />
       <Box
         width="100%"
@@ -56,6 +69,10 @@ const ProfilePage = () => {
         </Box>
       </Box>
     </Box>
+      )}
+
+    </>
+    
   );
 };
 

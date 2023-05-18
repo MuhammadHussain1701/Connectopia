@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import Contacts from "../../components/Contacts"
 import Welcome from "components/Welcome";
 import ChatContainer from "components/ChatContainer";
-import io from "socket.io-client"
+import HashLoader from "react-spinners/HashLoader";
+
 function Chat(){
     const navigate=useNavigate()
     const [contacts,setContacts]=useState([])
@@ -13,7 +14,12 @@ function Chat(){
     const [currentChat,setCurrentChat]=useState(undefined)
     const [isLoaded,setIsLoaded]=useState(false)
     const isAuth = useSelector((state) => state.user);
-
+    const [loadingEffect, setLoadingEffect] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingEffect(false);
+    }, 2000);
+  },[]);
     useEffect(()=>{
         if(!isAuth)  
         {
@@ -42,7 +48,14 @@ function Chat(){
     }
     else{
         return (
-            <div className="out-container">
+            <>
+      {loadingEffect ? (
+        <div className="login-loading">
+
+          <HashLoader  color="#02aaff" size={200} />
+        </div>
+      ) : (
+        <div className="out-container">
                 <div className="chat-container">
                     <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
                     {isLoaded && currentChat===undefined?(
@@ -53,6 +66,9 @@ function Chat(){
                     )}
                 </div>
             </div>
+      )}
+      </>
+            
         )
     }
    
