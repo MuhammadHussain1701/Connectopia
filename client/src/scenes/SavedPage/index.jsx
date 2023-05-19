@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { PhotoAlbumOutlined } from "@mui/icons-material";
 import PostWidget from "scenes/widgets/PostWidget";
-
+import HashLoader from "react-spinners/HashLoader";
 const SavedPage = () => {
   const [savedPosts, setsavedPosts] = useState([]);
   const { userId } = useParams();
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const [selectedCategory, setSelectedCategory] = useState("all");
-
+  const [loadingEffect, setLoadingEffect] = useState(true);
   const getsavedPosts = () => {
     const savedPosts = window.localStorage.getItem('savedPosts');
     const data = JSON.parse(savedPosts);
@@ -35,13 +35,24 @@ const SavedPage = () => {
   useEffect(() => {
     getsavedPosts();
   }, []);
-
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingEffect(false);
+    }, 2000);
+  },[]);
   const filteredImages = selectedCategory === 'all'
     ? savedPosts
     : savedPosts.filter((image) => image.category === selectedCategory);
 
   return (
-    <Box>
+    <>
+      {loadingEffect ? (
+        <div className="login-loading">
+
+          <HashLoader  color="#02aaff" size={200} />
+        </div>
+      ) : (
+        <Box>
       <Navbar />
       <Box
         width="100%"
@@ -103,6 +114,9 @@ const SavedPage = () => {
         </Grid>
       </Box>
     </Box>
+      )}
+    </>
+    
   );
 };
 
