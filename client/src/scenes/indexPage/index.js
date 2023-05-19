@@ -72,7 +72,7 @@ function IndexPage() {
                 <button id="neonShadow"><span>Lets Connect</span></button>
               </NavLink>
             </div>
-            <div class="copy">© Connectopia</div>
+            <div class="copy">© Connectopia|Made By Hussain</div>
           </article>
         </div>
     </div>
