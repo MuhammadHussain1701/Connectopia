@@ -99,6 +99,19 @@ body,
 	src: url(./fonts/raleway-black.woff2);
 	font-weight: 900;
 }
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color: white;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(60, 59, 59);
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: lightblue;
+}
 body {
 	background-color: #010101;
 	font-family: raleway_f, sans-serif;
