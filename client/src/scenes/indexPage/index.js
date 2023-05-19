@@ -69,7 +69,7 @@ function IndexPage() {
               </p>
 
               <NavLink className="index-btn" to="/login">
-                Get into Connectopia
+                <button id="neonShadow"><span>Lets Connect</span></button>
               </NavLink>
             </div>
             <div class="copy">© Connectopia</div>
