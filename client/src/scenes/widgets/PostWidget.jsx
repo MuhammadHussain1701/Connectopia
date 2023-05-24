@@ -40,9 +40,9 @@ const PostWidget = ({
   const primary = palette.primary.main;
 
   const [loadcomments, setLoadComments] = useState([]);
-
+  const envApi=process.env.REACT_APP_API_URL
   function fetchDataComments(){
-    axios.get(`http://localhost:3001/posts/${postId}/get/comment`, {
+    axios.get(`${envApi}/posts/${postId}/get/comment`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ const PostWidget = ({
 
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`${envApi}/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const PostWidget = ({
   const postComment = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3001/posts/${postId}/comment`, 
+        `${envApi}/posts/${postId}/comment`, 
         {
           userId: loggedInUserId,
           postId: postId,
@@ -102,7 +102,7 @@ const PostWidget = ({
   }
 
   const handleShare = () => {
-    const postUrl = `http://localhost:3000/posts`;
+    const postUrl = `${envApi}/posts`;
     navigator.clipboard.writeText(postUrl);
   };
 
@@ -145,7 +145,7 @@ const PostWidget = ({
           height="280px"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`http://localhost:3001/assets/${picturePath}`}
+          src={`${envApi}/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt="0.25rem">

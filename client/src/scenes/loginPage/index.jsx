@@ -22,7 +22,7 @@ const LoginPage = () => {
         </div>
       ) : (
         <Box>
-          <Box
+          <Box  
             width="100%"
             backgroundColor={theme.palette.background.alt}
             p="1rem 6%"

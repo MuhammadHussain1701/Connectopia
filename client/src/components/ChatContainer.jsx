@@ -9,11 +9,11 @@ function ChatContainer({ currentChat, currentUser }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [messages,setMessages]=useState([])
-
+  const envApi=process.env.REACT_APP_API_URL
   
   const handleSendMsg = async (msg) => {
     
-    await axios.post("http://localhost:3001/messages/addmsg",{
+    await axios.post(`${envApi}/messages/addmsg`,{
        from:currentUser._id,
        to:currentChat._id,
        message:msg
@@ -32,7 +32,7 @@ function ChatContainer({ currentChat, currentUser }) {
   async function fetchData(){
     if(currentUser)
     {
-      const response=await axios.post("http://localhost:3001/messages/getmsg",{
+      const response=await axios.post(`${envApi}/messages/getmsg`,{
       from:currentUser._id,
       to:currentChat._id
 
@@ -53,7 +53,7 @@ function ChatContainer({ currentChat, currentUser }) {
         <div className="user-details">
           <div className="chatContainer-avatar">
             <img
-              src={`http://localhost:3001/assets/${currentUserImage}`}
+              src={`${envApi}/assets/${currentUserImage}`}
               alt=""
             />
           </div>

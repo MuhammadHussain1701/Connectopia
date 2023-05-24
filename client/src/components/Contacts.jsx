@@ -6,7 +6,7 @@ function Contacts({ contacts, currentUser,changeChat}) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
-
+  const envApi=process.env.REACT_APP_API_URL
   useEffect(() => {
     if (currentUser) {
       setCurrentUserImage(currentUser.picturePath);
@@ -38,7 +38,7 @@ function Contacts({ contacts, currentUser,changeChat}) {
                   onClick={()=>changeCurrentChat(index,contact)}
                 >
                   <div className="contact-avatar">
-                    <img src={`http://localhost:3001/assets/${contact.picturePath}`} alt="" />
+                    <img src={`${envApi}/assets/${contact.picturePath}`} alt="" />
                   </div>
                   <div className="contact-username">
                     <h3>{`${contact.firstName} ${contact.lastName}`}</h3>
@@ -50,7 +50,7 @@ function Contacts({ contacts, currentUser,changeChat}) {
           <div className="current-user">
             <div className="currentuser-avatar">
               
-              <img src={`http://localhost:3001/assets/${currentUserImage}`} alt="" />
+              <img src={`${envApi}/assets/${currentUserImage}`} alt="" />
             </div>
             <div className="currentuser-username">
               <h2>{currentUserName}</h2>

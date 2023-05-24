@@ -27,9 +27,9 @@ const UserWidget = ({ userId, picturePath }) => {
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
-
+  const envApi=process.env.REACT_APP_API_URL
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${envApi}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -40,7 +40,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const updateUser = async () => {
     try {
       const response = await axios.patch(
-        `http://localhost:3001/users/${userId}`,
+        `${envApi}/users/${userId}`,
         { twitter, linkedIn },
         {
           headers: {
