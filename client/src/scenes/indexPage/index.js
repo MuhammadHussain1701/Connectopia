@@ -13,14 +13,14 @@ function IndexPage() {
       let scrollY = window.scrollY;
       document.documentElement.style.setProperty("--scrollTop", `${scrollY}px`);
     });
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-    ScrollSmoother.create(
-      {
-        wrapper: ".wrapper",
-        content: ".content",
-      },
-      []
-    );
+    // gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    // ScrollSmoother.create(
+    //   {
+    //     wrapper: ".wrapper",
+    //     content: ".content",
+    //   },
+    //   []
+    // );
   });
   
   return (
