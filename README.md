@@ -10,7 +10,7 @@ What are features of connectopia?
 -Post Pictures: Share your favorite moments, experiences, and inspirations
 -Likes and Comments: Engage in conversations and show appreciation for others' posts
 -Save Posts: Bookmark posts that inspire you for later reference
--A platform where you can Chat with your friends.
+-Chat with friends:A platform where you can Chat with your friends.
 
 
 URL FOR DEPLOYED VERSION : https://connectopia.netlify.app/
