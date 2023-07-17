@@ -12,5 +12,5 @@ What are features of connectopia?
 -Save Posts: Bookmark posts that inspire you for later reference
 -Chat with friends:A platform where you can Chat with your friends.
 
-
+ 
 URL FOR DEPLOYED VERSION : https://connectopia.netlify.app/
